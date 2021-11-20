@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>
+        Главная страница
+    </title>
+</head>
+<body>
+    <h1>
+        Войти
+    </h1>
+    <form action = '/sessions' method = 'POST'>
+        <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
+        <label for = 'user[login]'>Логин:<label>
+        <input type = 'login' name = 'user[login]'><br><br>
+        <label for = 'user[password]'>Пароль:<label>
+        <input type = 'password' name = 'user[password]'><br><br>
+        <input type = 'submit' name = 'submit' class = 'submit' value = 'Войти'><br>
+    </form>
+    <h1>
+        Зарегистрироваться 
+    </h1>
+    <form action = '/users' method = 'POST'>
+        <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
+        <label for = 'user[login]'>Логин:<label>
+        <input type = 'login' name = 'user[login]'><br><br>
+        <label for = 'user[password]'>Пароль:<label>
+        <input type = 'password' name = 'user[password]'><br><br>
+        <input type = 'submit' name = 'submit' class = 'submit' value = 'Создать'>
+    </form>
+</body> 
+</html>
