@@ -1,32 +1,48 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
-        Главная страница
-    </title>
+    <title>Главная страница</title>
+    <%= stylesheet_link_tag "application.css" %>
 </head>
 <body>
-    <h1>
-        Войти
-    </h1>
-    <form action = '/sessions' method = 'POST'>
-        <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
-        <label for = 'user[login]'>Логин:<label>
-        <input type = 'login' name = 'user[login]'><br><br>
-        <label for = 'user[password]'>Пароль:<label>
-        <input type = 'password' name = 'user[password]'><br><br>
-        <input type = 'submit' name = 'submit' class = 'submit' value = 'Войти'><br>
-    </form>
-    <h1>
-        Зарегистрироваться 
-    </h1>
-    <form action = '/users' method = 'POST'>
-        <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
-        <label for = 'user[login]'>Логин:<label>
-        <input type = 'login' name = 'user[login]'><br><br>
-        <label for = 'user[password]'>Пароль:<label>
-        <input type = 'password' name = 'user[password]'><br><br>
-        <input type = 'submit' name = 'submit' class = 'submit' value = 'Создать'>
-    </form>
+    <div class = "card">
+        <div >
+            <h2 class = "card-title">Войти</h2>
+        </div>
+        <form action = '/sessions' method = 'POST'>
+            <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
+            <div class = "card-input">
+                <label for = 'user[login]'>Логин: <label>
+                <input type = 'login' name = 'user[login]'><br><br>
+            </div>
+        
+            <div class = "card-input">
+                <label for = 'user[password]'>Пароль:<label>
+                <input type = 'password' name = 'user[password]'><br><br>
+            </div>
+            <div class = "card-accept"> 
+                <input type = 'submit' name = 'submit' class = 'submit' value = 'Войти'>
+            </div>
+        </form>
+    </div>
+    <div class = "card">
+        <div class = "card-title">
+            <h2>Зарегистрироваться</h2>
+        </div>
+        <form action = '/users' method = 'POST'>
+            <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
+            <div class = "card-input">
+                <label for = 'user[login]'>Логин: <label>
+                <input type = 'login' name = 'user[login]'><br><br>
+            </div>
+            <div class = "card-input">
+                <label for = 'user[password]'>Пароль:<label>
+                <input type = 'password' name = 'user[password]'><br><br>
+            </div>
+            <div class = "card-accept"> 
+                <input type = 'submit' name = 'submit' class = 'submit' value = 'Создать'>
+            </div>
+        </form>
+    </div>
 </body> 
 </html>

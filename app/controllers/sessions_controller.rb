@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
             session[:user_id] = user.id
             redirect_to user
         else
-            flash[:login_errors] = ['invaild credentials']
+            #flash[:login_errors] = ['invaild credentials']
             redirect_to '/'
         end
     end

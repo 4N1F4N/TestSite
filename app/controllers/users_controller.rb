@@ -15,11 +15,11 @@ class UsersController < ApplicationController
                 session[:user_id] = user.id 
                 redirect_to access_path
             else
-                flash[:register_errors] = user.errors.full_messages
+                #flash[:register_errors] = user.errors.full_messages
                 redirect_to '/'
             end
         else
-            flash[:register_errors] = user.errors.full_messages
+            #flash[:register_errors] = user.errors.full_messages
             redirect_to '/'
         end
     end
