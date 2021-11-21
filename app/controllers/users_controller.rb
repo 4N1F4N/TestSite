@@ -9,9 +9,9 @@ class UsersController < ApplicationController
         
     end
     def create
-        if !User.find_by(login:user_params[:login])
+        if !User.find_by(login:user_params[:login]) && !(user_params[:login] == "") && !(user_params[:password] == "") 
             user = User.new(user_params)
-            if user.save && 
+            if user.save 
                 session[:user_id] = user.id 
                 redirect_to access_path
             else
