@@ -9,25 +9,33 @@ class UsersController < ApplicationController
         
     end
     def create
-        if !User.find_by(login:user_params[:login])
-            if !(user_params[:login] == "")
-                if !(user_params[:password] == "")
-                    user = User.new(user_params)
-                    session[:user_id] = user.id 
-                    redirect_to access_path
-                else
-                    flash[:register_errors] = ["Пустой пароль"]
-                end
-            else
-                flash[:register_errors] = ["Пустой логин"]
-            end
+        check_flash = return_flash(register_params)
+        if check_flash == "noone"
+            user = User.new(register_params)
+            session[:user_id] = user.id 
+            redirect_to access_path
         else
-            flash[:register_errors] = ["Такой логин уже есть"]
+            flash[:register_errors] = [check_flash]
+            redirect_to '/'
         end
-        redirect_to '/'
     end
     private 
-        def user_params
+        def register_params
             params.require(:user).permit(:login, :password)
+        end
+        def return_flash(user_params)
+            if !User.find_by(login:user_params[:login])
+                if !(user_params[:login] == "")
+                    if !(user_params[:password] == "")
+                        return "noone"
+                    else
+                        return "Пустой пароль"
+                    end
+                else
+                    return  "Пустой логин"
+                end
+            else
+                return "Такой логин уже есть"
+            end
         end
 end
