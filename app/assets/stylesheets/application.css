@@ -37,3 +37,9 @@
 .card-accept{
     margin: 0px 0px 30px 30px;
 }
+.errors{
+    width: 300px;
+    margin: 0 auto;
+    font-size: 25px;
+    text-align: center;
+}
