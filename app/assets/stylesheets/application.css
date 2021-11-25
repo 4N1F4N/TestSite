@@ -13,33 +13,11 @@
  *= require_tree .
  *= require_self
  */
- .addcolor {
-    font-size: 18px;
-
-    font-family: Tahoma;
-    /*background: rgb(2,0,36);
-    background: linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(101,101,226,1) 51%, rgba(255,0,191,1) 100%);*/
-}
-.card {
-    border: solid;
-    background: rgb(3, 172, 187);
-    width: 400px;
+.lol {
     margin: 50px auto;
-    box-shadow: 5px 5px 10px dimgray ;
-    border-radius: 10px;
-}
-.card-title {
-    text-align: center;
-}
-.card-input{
-    margin-left: 30px;
-}
-.card-accept{
-    margin: 0px 0px 30px 30px;
-}
-.errors{
-    width: 300px;
-    margin: 0 auto;
-    font-size: 25px;
-    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 15px;
+    width: 400px;
+    background-color: rgb(135, 152, 245);
+    border-radius: 20px;
 }

@@ -2,61 +2,47 @@
 <html>
 <head>
     <title>Главная страница</title>
-    <%= stylesheet_link_tag "application.css" %>
+    
 </head>
-<body>
-    <div class = "card">
-        <div >
-            <h2 class = "card-title">Войти</h2>
-        </div>
-        <form action = '/sessions' method = 'POST'>
-            <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
-            <div class = "card-input">
-                <label for = 'user[login]'>Логин: <label>
-                <input type = 'login' name = 'user[login]'><br><br>
-            </div>
+<body class = 'text-center'>
+    <div class = 'form-signin'>
         
-            <div class = "card-input">
-                <label for = 'user[password]'>Пароль:<label>
-                <input type = 'password' name = 'user[password]'><br><br>
-            </div>
-            <div class = "card-accept"> 
-                <input type = 'submit' name = 'submit' class = 'submit' value = 'Войти'>
-            </div>
-        </form>
-    </div>
-    <div class = "errors">
-        <% if flash[:login_errors] %>
-            <% flash[:login_errors].each do |error|%>
-                <p><%= error %></p>
-            <% end %>
-        <% end %>
-    </div>
-    <div class = "card">
-        <div class = "card-title">
-            <h2>Зарегистрироваться</h2>
-        </div>
-        <form action = '/users' method = 'POST'>
+        <form class = 'lol' action = '/sessions' method = 'POST'>
+            <h1 class = 'h3 md-3 fw-normal'>Войти</h1>
             <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
-            <div class = "card-input">
-                <label for = 'user[login]'>Логин: <label>
-                <input type = 'login' name = 'user[login]'><br><br>
+            <div class = 'form-floating'>
+                <input type = 'login' name = 'user[login]' placeholder = "Логин"><br><br>
             </div>
-            <div class = "card-input">
-                <label for = 'user[password]'>Пароль:<label>
-                <input type = 'password' name = 'user[password]'><br><br>
+            <div class = 'form-floating'>
+                <input type = 'password' name = 'user[password]' placeholder = "Пароль"><br><br>
             </div>
-            <div class = "card-accept"> 
-                <input type = 'submit' name = 'submit' class = 'submit' value = 'Создать'>
-            </div>
+            <input type = 'submit' name = 'submit' class = 'submit' value = 'Войти'>
         </form>
-    </div>
-    <div class = "errors">
-        <% if flash[:register_errors] %>
-            <% flash[:register_errors].each do |error|%>
-                <p><%= error %></p>
+        <div class = "container">
+            <% if flash[:login_errors] %>
+                <% flash[:login_errors].each do |error|%>
+                    <p><%= error %></p>
+                <% end %>
             <% end %>
-        <% end %>
+        </div>
+        
+        <form class = 'lol' action = '/users' method = 'POST'>
+            <h1 class = 'h3 md-3 fw-normal'>Создать</h1>
+            <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
+            <div class = 'form-floating'>
+                <input type = 'login' name = 'user[login]' placeholder = "Логин"><br><br>
+            </div>
+            <div class = 'form-floating'>
+                <input type = 'password' name = 'user[password]' placeholder = "Пароль"><br><br>
+            </div>
+            <input type = 'submit' name = 'submit' class = 'submit' value = 'Создать'>
+        <div class = "container">
+            <% if flash[:register_errors] %>
+                <% flash[:register_errors].each do |error|%>
+                    <p><%= error %></p>
+                <% end %>
+            <% end %>
+        </div>
     </div>
 </body> 
 </html>

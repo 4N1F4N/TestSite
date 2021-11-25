@@ -5,14 +5,12 @@
         <link rel = "stylesheet" href = "/style.css">
         <%= stylesheet_link_tag "application.css" %>
     </head>
-    <body>
-        <div class = "card">
-            <div class = "card-title">
-                <h2>Вы успешно зашли на свой аккаунт</h2>
-                <p>Ваш логин: <%= @user.login%></p>
-                <p>Ваш пароль: <%= @user.password%></p>
-                <p><%= link_to 'Выйти на главную', '/'%></p>
-            </div>
+    <body class = 'form-signin text-center'>
+        <div class = 'lol'>
+            <h2 class = 'h3 md-3 fw-normal'>Вы успешно зашли на свой аккаунт</h2>
+            <p class = 'h5 md-3 fw-normal'>Ваш логин: <%= @user.login%></p>
+            <p class = 'h5 md-3 fw-normal'>Ваш пароль: <%= @user.password%></p>
+            <p class = 'h5 md-3 fw-normal'><%= link_to 'Выйти на главную', '/'%></p>
         </div>
     </body>
 </html>

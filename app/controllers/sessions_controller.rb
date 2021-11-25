@@ -7,8 +7,8 @@ class SessionsController < ApplicationController
             redirect_to user
         else
             flash[:login_errors] = [check_flash]
-        end
-        redirect_to '/'
+            redirect_to '/'
+        end 
     end
     def show
         @user = User.find(params[:id])
