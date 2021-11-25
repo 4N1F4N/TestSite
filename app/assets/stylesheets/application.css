@@ -13,11 +13,21 @@
  *= require_tree .
  *= require_self
  */
-.lol {
+.card {
     margin: 50px auto;
     padding-top: 10px;
     padding-bottom: 15px;
     width: 400px;
     background-color: rgb(135, 152, 245);
     border-radius: 20px;
+}
+.card-alert {
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 0;
+    width: 300px;
+}
+.button-width {
+    margin: 0 auto;
+    width: 100px;
 }
