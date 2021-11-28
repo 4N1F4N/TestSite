@@ -1,14 +1,20 @@
 <!doctype html>
 <html>
     <head>
-        <title>Личный кабинет</title>
+        <title><%= t("pages.account_page")%></title>
     </head>
     <body class = 'form-signin text-center'>
         <div class = 'card'>
-            <h2 class = 'h3 md-3 fw-normal' >Вы успешно зашли на свой аккаунт</h2>
-            <p class = 'p md-3 fw-normal' style = 'font-size : 20px'>Ваш логин: <%= @user.login%></p>
-            <p class = 'p md-3 fw-normal' style = 'font-size : 20px'>Ваш пароль: <%= @user.password%></p>
-            <p class = 'h5 md-3 fw-normal'><%= link_to 'Выйти на главную', '/'%></p>
+            <% if !flash[:account_errors] %>
+                <h2 class = 'h3 md-3 fw-normal'><%= t "welcome" %></h2>
+                <p class = 'p md-3 fw-normal' style = 'font-size : 20px'><%= @user.login%></p>
+                <p class = 'h5 md-3 fw-normal'><%= link_to t("pages.to_main_page"), '/'%></p>
+            <% else %>
+                <% flash[:account_errors].each do |error|%>
+                    <h2 class = 'h2 md-3 fw-normal'><%= error %></h2>
+                <% end %>
+                <p class = 'h5 md-3 fw-normal'><%= link_to t("pages.to_main_page"), '/'%></p>
+            <% end %>
         </div>
     </body>
 </html>

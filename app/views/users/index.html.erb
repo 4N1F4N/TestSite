@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Главная страница</title>
+    <title><%= t("pages.main_page")%></title>
 </head>
 <body class = 'text-center'>
+    <% if @user %>
+        <div class = 'card'>
+            <p class = 'h3 md-3 fw-normal'><%= t("card.already_login") + @user.login%></p>
+            <p class = 'h5 md-3 fw-normal'><%= link_to t("card.title_login"), "/users/#{@user.id}"%></p>
+        </div>
+    <% end %>
     <div class = 'form-signin'>
         <form class = 'card' action = '/sessions' method = 'POST'>
-            <h1 class = 'h3 md-3 fw-normal'>Войти</h1>
+            <h1 class = 'h3 md-3 fw-normal'><%= t("card.title_login")%></h1>
             <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
             <div class = 'form-floating'>
-                <input type = 'login' name = 'user[login]' placeholder = 'Логин'><br><br>
+                <input type = 'login' name = 'user[login]' placeholder = <%= t("card.login")%>><br><br>
             </div>
             <div class = 'form-floating'>
-                <input type = 'password' name = 'user[password]' placeholder = 'Пароль'><br><br>
+                <input type = 'password' name = 'user[password]' placeholder = <%= t("card.password")%>><br><br>
             </div>
-            <input type = 'submit' name = 'submit' class = 'btn btn-sm button-width submit' value = 'Войти'>
+            <input type = 'submit' name = 'submit' class = 'btn btn-sm button-width submit' value = <%= t("card.title_login")%>>
         </form>
         
         <% if flash[:login_errors] %>
@@ -26,19 +32,29 @@
         <% end %>
         
         <form class = 'card' action = '/users' method = 'POST'>
-            <h1 class = 'h3 md-3 fw-normal'>Создать</h1>
+            <h1 class = 'h3 md-3 fw-normal'><%= t("card.title_create")%></h1>
             <input type = 'hidden' name = 'authenticity_token' value = '<%=form_authenticity_token%>'>
             <div class = 'form-floating'>
-                <input type = 'login' name = 'user[login]' placeholder = 'Логин'><br><br>
+                <input type = 'login' name = 'user[login]' placeholder = <%= t("card.login")%>><br><br>
             </div>
             <div class = 'form-floating'>
-                <input type = 'password' name = 'user[password]' placeholder = 'Пароль'><br><br>
+                <input type = 'password' name = 'user[password]' placeholder = <%= t("card.password")%>><br><br>
             </div>
-            <input type = 'submit' name = 'submit' class = 'btn btn-sm button-width submit' value = 'Создать'>
+            <div class = 'form-floating'>
+                <input type = 'password' name = 'user[password_confirmation]' placeholder = <%= t("card.password_confirmation")%>><br><br>
+            </div>
+            <input type = 'submit' name = 'submit' class = 'btn btn-sm button-width submit' value = <%= t("card.title_create")%>>
         </form>
         <% if flash[:register_errors] %>
             <div class = 'alert alert-warning card-alert'>
                 <% flash[:register_errors].each do |error|%>
+                    <p class = 'p md-3 fw-normal'><%= error %></p>
+                <% end %>
+            </div>
+        <% end %>
+        <% if flash[:register_success] %>
+            <div class = 'alert alert-success card-alert'>
+                <% flash[:register_success].each do |error|%>
                     <p class = 'p md-3 fw-normal'><%= error %></p>
                 <% end %>
             </div>

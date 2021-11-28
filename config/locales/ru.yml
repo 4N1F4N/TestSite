@@ -1,0 +1,22 @@
+ru:
+  welcome: "Добро пожаловать!"
+  pages:
+    main_page: "Главная страница"
+    account_page: "Аккаунт"
+    to_main_page: "На главную"
+    not_found_page: "Не найдено"
+  errors:
+    login_error: "Неправильный логин или пароль!"
+    account_exist_error: "Такого аккаунта нет"
+    account_login_error: "Вы не зашли в этот аккаунт"
+    register_error: "Неправильно введенные логин и/или пароль!"
+    page_exists: "Такой страницы не существует"
+  success:
+    register_success: "Регистрация успешна!"
+  card:
+    already_login: "Вы уже зашли как: "
+    title_login: "Войти"
+    title_create: "Создать"
+    login: "Логин"
+    password: "Пароль"
+    password_confirmation: "Подтвердить пароль"
